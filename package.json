@@ -1,0 +1,23 @@
+{
+  "name": "phone-book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dilipshelake03/phone-book"
+  },
+  "author": {
+    "name": "dilip shelake",
+    "url": "https://github.com/dilipshelake03"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}

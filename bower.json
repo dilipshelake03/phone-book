@@ -1,0 +1,25 @@
+{
+  "name": "phone-book",
+  "description": "",
+  "main": "server.js",
+  "license": "MIT",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "Authors": [
+    "Dilip Shelake"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "AngularJS-Toaster": "angularjs-toaster#^2.2.0"
+  }
+}

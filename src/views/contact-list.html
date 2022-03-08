@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div>
+                    <h3>
+                        <span>{{title}}</span>
+                    </h3>
+                </div>
+                <div class="add-new-btn">
+                    <button class="btn btn-primary" ng-click="onAddNew()" ng-disabled="addNewContact">Add New</button>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <form name="contactBookForm" novalidate>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    First Name
+                                </th>
+                                <th>
+                                    Last Name
+                                </th>
+                                <th>
+                                    Phone
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="contact in contactList">
+                                <td>
+                                    <div class="form-group"
+                                        ng-if="(selectedId === $index) || (addNewContact && $index == 0)">
+                                        <input type="text" name="firstName" class="form-control" ng-model="contactForm.firstName"
+                                            required="required"
+                                            ng-class="{'error-field': contactBookForm.firstName.$touched && contactBookForm.firstName.$invalid}">
+                                        <span class="error-message"
+                                            ng-show="contactBookForm.firstName.$touched && contactBookForm.firstName.$invalid">
+                                            <span ng-show="contactBookForm.firstName.$error.required">First Name is required</span>
+                                        </span>
+                                    </div>
+
+                                    <div ng-if="selectedId !== $index">
+                                        {{contact.firstName}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group"
+                                        ng-if="(selectedId === $index) || (addNewContact && $index == 0)">
+                                        <input type="text" ng-model="contactForm.lastName" name="lastName"
+                                            required="required" class="form-control" 
+                                            ng-class="{'error-field': contactBookForm.lastName.$touched && contactBookForm.lastName.$invalid}">
+                                        <span class="error-message"
+                                            ng-show="contactBookForm.lastName.$touched && contactBookForm.firstName.$invalid">
+                                            <span ng-show="contactBookForm.lastName.$error.required">last Name is required</span>
+                                        </span>
+                                    </div>
+                                    <div ng-if="selectedId !== $index">
+                                        {{contact.lastName}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group"
+                                        ng-if="(selectedId === $index) || (addNewContact && $index == 0)">
+                                        <input type="number" ng-model="contactForm.phone" name="phone" class="form-control"
+                                            required="required" maxlength="10" minlength="10"
+                                            ng-class="{'error-field': contactBookForm.phone.$touched && contactBookForm.phone.$invalid}">
+                                        <span class="error-message"
+                                            ng-show="contactBookForm.phone.$touched && contactBookForm.phone.$invalid">
+                                            <span ng-show="contactBookForm.phone.$error.required">Phone number is required</span>
+                                            <span
+                                                ng-show="contactBookForm.phone.$error.maxlength || contactBookForm.phone.$error.minlength">Please
+                                                enter valid phone numer</span>
+                                        </span>
+                                    </div>
+                                    <div ng-if="selectedId !== $index">
+                                        {{contact.phone}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div ng-if="selectedId !== $index && !addNewContact">
+                                        <a ng-click="removeContact($index)" style="cursor: pointer"><i
+                                                class="glyphicon glyphicon-trash"></i></a>
+                                        <a ng-click="editContact(contact, $index)" style="cursor: pointer"><i
+                                                class="glyphicon glyphicon-pencil"></i></a>
+                                    </div>
+                                    <div ng-if="(selectedId === $index) || (addNewContact && $index == 0)">
+                                        <button class="btn btn-primary" ng-disabled="contactBookForm.$invalid"
+                                            ng-click="saveContact(contactForm, addNewContact ? undfined : $index)">Save</button>
+                                        <button class="btn btn-secondary" ng-click="resetData()">Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

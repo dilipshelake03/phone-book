@@ -1,0 +1,24 @@
+.error-field {
+    border: 1px solid red;
+}
+.error-message {
+    color:red; 
+    display: block;
+    font-size: small;
+}
+
+.panel-heading {
+    display: flex;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+.add-new-btn {
+    margin-left: auto;
+}
+
+.container {
+    margin: 50px;
+}
